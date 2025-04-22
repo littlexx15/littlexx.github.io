@@ -1,22 +1,91 @@
-/*************************************************************************
- * This css file is for your own style.
- *************************************************************************/
-
-#me {
-  width: 180px;
-  border-radius: 50%;
+/* —— 1. 统一配色 & 变量 —— */
+:root {
+  --color-bg: #f4f4f9;
+  --color-text: #333;
+  --color-primary: #005cbf;
+  --color-secondary: #777;
+  --font-base: 'Source Sans Pro', sans-serif;
+  --font-heading: 'Oswald', sans-serif;
+  --space: 1.5rem;
 }
 
-.flex-item-stretch-6 {
-  flex: 1 auto;
+/* 全局重设 */
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-base);
+  line-height: 1.6;
 }
 
-.max-width-600 {
+/* —— 2. 头部导航 & Logo 区 —— */
+.menu {
+  background: white !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.menu .logo a {
+  color: var(--color-primary) !important;
+  font-family: var(--font-heading) !important;
+  font-size: 2rem !important;
+}
+.menu .menu-items>a {
+  color: var(--color-text) !important;
+  margin-right: var(--space);
+}
+.menu .menu-items>a:hover {
+  color: var(--color-primary) !important;
+}
+
+/* —— 3. 主视觉（Hero）区 —— */
+.banner {
+  background: var(--color-primary) url('img/your-hero.jpg') center/cover no-repeat;
+  padding: calc(var(--space) * 2) var(--space);
+  color: white;
+}
+.banner h2 {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.banner p {
+  font-size: 1.1rem;
+}
+
+/* —— 4. 内容区间隔 & 栅格 —— */
+.content {
+  padding: var(--space);
   max-width: 900px;
 }
+.content h2 {
+  border-left: 4px solid var(--color-primary);
+  padding-left: var(--space);
+  margin-top: calc(var(--space) * 2);
+  font-family: var(--font-heading);
+}
+.content ul, .content ol {
+  margin-left: calc(var(--space) * 1.5);
+}
 
-@media screen and (min-width: 900px) {
-  .flex-item-stretch-6 {
-    flex: 5.5;
-  }
+/* —— 5. 头像 & 按钮美化 —— */
+#me {
+  width: 200px;
+  border-radius: 50%;
+  border: 4px solid var(--color-primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: var(--space);
+}
+.custom-button-primary {
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  border-radius: 24px;
+  padding: 8px 16px;
+  font-family: var(--font-base);
+}
+.custom-button-primary:hover {
+  background: darken(var(--color-primary), 10%) !important;
+}
+
+/* —— 6. 响应式微调 —— */
+@media (max-width: 700px) {
+  .banner h2 { font-size: 2rem; }
+  .menu .menu-items>a { font-size: 1rem; }
 }
